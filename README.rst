@@ -31,5 +31,5 @@ or
 
     $ bash
     $ source uwsgi_deuce_deployment/bin/activate
-    $ uwsgi -d --ini uwsgi/uwsgi_deuce.ini
+    $ uwsgi --ini uwsgi/uwsgi_deuce.ini
   
