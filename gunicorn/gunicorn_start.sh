@@ -8,4 +8,4 @@ if [ -n "${VIRTUAL_ENV}" ]; then
 fi
 
 echo "Starting new instances..."
-gunicorn --error-logfile log/deuce-errors.log --access-logfile log/deuce-access.log --log-level DEBUG -D deuce.transport.wsgi.app:app
+gunicorn --error-logfile run/log/deuce-errors.log --access-logfile run/log/deuce-access.log --log-level DEBUG -D deuce.transport.wsgi.app:app
