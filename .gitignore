@@ -1,0 +1,4 @@
+uwsgi_deuce_deployment
+gunicorn_deuce_deployment
+ini
+deuce.log
