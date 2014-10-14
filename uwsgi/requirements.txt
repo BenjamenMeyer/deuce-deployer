@@ -1,0 +1,2 @@
+uWSGI
+-e git://github.com/rackerlabs/deuce@b313bbb3a6a5a03db6eea2b92caf28b6b871ff45#egg=deuce-origin/master
