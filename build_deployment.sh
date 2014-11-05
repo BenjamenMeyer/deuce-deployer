@@ -33,6 +33,7 @@ else:
 		virtualenv -p ${PYTHON_BINARY} ${TARGET_ENV}
 		if [ $? -eq 0 ]; then
 			. ${TARGET_ENV}/bin/activate
+			pip install Cython
 			pip install -r ${PIP_REQUIRES}
 			if [ $? -eq 0 ]; then
 				ln -s ${INI_SPACE} ini
