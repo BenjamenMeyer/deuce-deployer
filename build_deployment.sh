@@ -30,6 +30,26 @@ else:
     sys.exit(1)
 "
 	if [ $? -eq 0 ]; then
+		if [ -h ini ]; then
+			echo "Found existing ini link."
+			echo "Removing..."
+			rm ini
+		fi
+
+		if [ -d ${TARGET_ENV} ]; then
+			if [ "${TARGET}" == "uwsgi" ]; then
+				echo "Stopping all uWSGI instances..."
+				pkill -9 uwsgi
+			elif [ "${TARGET}" == "gunicorn" ]; then
+				echo "Stopping all gunicorn instances..."
+				./${TARGET}/gunicorn_stop.sh ${TARGET_ENV}
+			fi
+
+			echo "Found existing virtual environment."
+			echo "Removing..."
+			rm -Rf ${TARGET_ENV}
+		fi
+
 		virtualenv -p ${PYTHON_BINARY} ${TARGET_ENV}
 		if [ $? -eq 0 ]; then
 			. ${TARGET_ENV}/bin/activate
