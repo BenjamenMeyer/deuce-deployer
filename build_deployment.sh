@@ -17,7 +17,7 @@ fi
 TARGET_ENV=${TARGET}_deuce_deployment
 PIP_REQUIRES=${TARGET}/requirements.txt
 
-INI_SPACE=${TARGET_ENV}/src/master/ini
+INI_SPACE=${TARGET_ENV}/src/deuce-master/ini
 
 if [ -n "${PYTHON_BINARY}" ]; then
 	${PYTHON_BINARY} -c "import sys
