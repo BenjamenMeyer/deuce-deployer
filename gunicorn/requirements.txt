@@ -1,3 +1,4 @@
 gunicorn
+blist
 -e git://github.com/rackerlabs/deuce#egg=deuce_master
 -e git://github.com/racker/eom#egg=eom_master
