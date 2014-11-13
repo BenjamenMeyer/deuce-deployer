@@ -48,6 +48,35 @@ else:
 			echo "Found existing virtual environment."
 			echo "Removing..."
 			rm -Rf ${TARGET_ENV}
+
+		fi
+
+		if [ -f run/server.pid ]; then
+			echo "Removing PID File"
+			rm run/server.pid
+		fi
+
+		DELETE_LOGS=""
+		while /bin/true
+		do
+			read -p "Delete existing logs? [y/n]" -r DELETE_LOGS
+			if [ "${DELETE_LOGS}" == "y" ]; then
+				break
+			elif [ "${DELETE_LOGS}" == "Y" ]; then
+				DELETE_LOGS="y"
+				break
+			elif [ "${DELETE_LOGS}" == "n" ]; then
+				break
+			elif ["${DELETE_LOGS}" == "N" ]; then
+				break
+			else
+				echo "Invalid input."
+			fi
+		done;
+
+		if [ "${DELETE_LOGS}" == "y" ]; then
+			echo "Deleting logs..."
+			rm run/log/*
 		fi
 
 		virtualenv -p ${PYTHON_BINARY} ${TARGET_ENV}
