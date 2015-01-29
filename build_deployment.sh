@@ -39,10 +39,10 @@ else:
 		if [ -d ${TARGET_ENV} ]; then
 			if [ "${TARGET}" == "uwsgi" ]; then
 				echo "Stopping all uWSGI instances..."
-				pkill -9 uwsgi
+				./${TARGET}/uwsgi_stop.h
 			elif [ "${TARGET}" == "gunicorn" ]; then
 				echo "Stopping all gunicorn instances..."
-				./${TARGET}/gunicorn_stop.sh ${TARGET_ENV}
+				./${TARGET}/gunicorn_stop.sh
 			fi
 
 			echo "Found existing virtual environment."
@@ -86,6 +86,15 @@ else:
 			pip install -r ${PIP_REQUIRES}
 			if [ $? -eq 0 ]; then
 				ln -s ${INI_SPACE} ini
+
+				if [ "${TARGET}" == "uwsgi" ]; then
+					echo "Starting uWSGI instances..."
+					./${TARGET}/uwsgi_start.sh
+
+				elif [ "${TARGET}" == "gunicorn" ]; then
+					echo "Starting gunicorn instances..."
+					./${TARGET}/gunicorn_start.sh
+				fi
 			else
 				echo "Failed to install pip environment"
 				exit 5
