@@ -1,0 +1,192 @@
+[
+    {
+        "resource": "health",
+        "route": "/v1.0/health",
+        "acl": {
+            "read": [
+                "identity:ops"
+            ]
+        }
+    },
+    {
+        "resource": "ping",
+        "route": "/v1.0/ping",
+        "acl": {
+            "read": [
+                "identity:ops"
+            ]
+        }
+    },
+    {
+        "resource": "home",
+        "route": "/v1.0",
+        "acl": {
+            "read": [
+                "identity:ops"
+            ]
+        }
+    },
+    {
+        "resource": "vaults",
+        "route": "/v1.0/vaults(/[^/]+)?/*",
+        "acl": {
+            "read": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "cloudBackup:creator",
+                "cloudBackup:observer",
+                "object-store:admin",
+                "object-store:creator",
+                "object-store:observer",
+                "admin",
+                "creator",
+                "observer"
+            ],
+            "write": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "cloudBackup:creator",
+                "object-store:admin",
+                "object-store:creator",
+                "admin",
+                "creator"
+            ],
+            "delete": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "object-store:admin",
+                "admin"
+            ]
+        }
+    },
+    {
+        "resource": "blocks",
+        "route": "/v1.0/vaults(/[^/]+)?/blocks(/[^/]+)?/*",
+        "acl": {
+            "read": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "cloudBackup:creator",
+                "cloudBackup:observer",
+                "object-store:admin",
+                "object-store:creator",
+                "object-store:observer",
+                "admin",
+                "creator",
+                "observer"
+            ],
+            "write": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "cloudBackup:creator",
+                "object-store:admin",
+                "object-store:creator",
+                "admin",
+                "creator"
+            ],
+            "delete": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "object-store:admin",
+                "admin"
+            ]
+        }
+    },
+    {
+        "resource": "files",
+        "route": "/v1.0/vaults(/[^/]+)?/files(/[^/]+)?/*",
+        "acl": {
+            "read": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "cloudBackup:creator",
+                "cloudBackup:observer",
+                "object-store:admin",
+                "object-store:creator",
+                "object-store:observer",
+                "admin",
+                "creator",
+                "observer"
+            ],
+            "write": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "cloudBackup:creator",
+                "admin",
+                "creator"
+            ],
+            "delete": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "object-store:admin",
+                "admin"
+            ]
+        }
+    },
+    {
+        "resource": "fileblocks",
+        "route": "/v1.0/vaults(/[^/]+)?/files(/[^/]+)?/blocks(/[^/]+)?/*",
+        "acl": {
+            "read": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "cloudBackup:creator",
+                "cloudBackup:observer",
+                "object-store:admin",
+                "object-store:creator",
+                "object-store:observer",
+                "admin",
+                "creator",
+                "observer"
+            ],
+            "write": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "cloudBackup:creator",
+                "object-store:admin",
+                "object-store:creator",
+                "admin",
+                "creator"
+            ],
+            "delete": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "object-store:admin",
+                "admin"
+            ]
+        }
+    },
+    {
+        "resource": "storageblocks",
+        "route": "/v1.0/vaults(/[^/]+)?/storage/blocks(/[^/]+)?/*",
+        "acl": {
+            "read": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "cloudBackup:creator",
+                "cloudBackup:observer",
+                "object-store:admin",
+                "object-store:creator",
+                "object-store:observer",
+                "admin",
+                "creator",
+                "observer"
+            ],
+            "write": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "cloudBackup:creator",
+                "object-store:admin",
+                "object-store:creator",
+                "admin",
+                "creator"
+            ],
+            "delete": [
+                "identity:user-admin",
+                "cloudBackup:admin",
+                "object-store:admin",
+                "admin"
+            ]
+        }
+    }
+]
